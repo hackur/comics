@@ -1,4 +1,12 @@
+import { ComicDropzone } from '@comics-platform/comic-react'
+import { ComicSource } from '@comics-platform/comic-core'
+
 export default function Home() {
+  const handleFileSelect = (sources: ComicSource[]) => {
+    console.log('Selected files:', sources)
+    // TODO: Process the comic files
+  }
+
   return (
     <main className="min-h-screen p-8">
       <div className="max-w-4xl mx-auto">
@@ -10,10 +18,7 @@ export default function Home() {
         <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-2xl font-semibold mb-4">Get Started</h2>
           <p className="mb-4">Drop your comic files here or click to browse.</p>
-          {/* ComicDropzone component will go here */}
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-            <p className="text-gray-500">Comic upload area coming soon...</p>
-          </div>
+          <ComicDropzone onFileSelect={handleFileSelect} />
         </div>
       </div>
     </main>
